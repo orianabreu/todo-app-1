@@ -4,6 +4,7 @@ import { IconContext } from "react-icons";
 import './TodoForm.css';
 import TodoButton from '../TodoButton';
 import TodoInput from '../TodoInput';
+import TodoList from '../TodoList';
 
 function TodoForm() {
     const [input, setInput] = useState("");
@@ -18,14 +19,14 @@ function TodoForm() {
     }
 
     function newList(text, id) {
-        return <div className='todo-list'>
+        return <TodoList>
         <p className='input-text' key={id}>{text}</p>
         <IconContext.Provider value={{ className: "delete-icon" }}>
         <div>
         <AiOutlineDelete onClick={() => removeItem(id)}/>
         </div>
         </IconContext.Provider>
-        </div>
+        </TodoList>
     }
 
     function handleClick() {
